@@ -21,6 +21,13 @@
     <script src="Scripts/angular-messages.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
     <style>
+       div.md-swipe-left *, div.md-swipe-right *{
+   touch-action : pan-y;
+}
+
+div.md-swipe-up *, div.md-swipe-down *{
+   touch-action : pan-x;
+} 
         html {
             overflow: scroll;
         }
