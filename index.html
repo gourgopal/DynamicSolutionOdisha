@@ -1,0 +1,408 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="#1 dealer and distributor of billing printers in Odisha">
+    <meta name="keywords" content="best,trusted,dealer,distributor,billing printers,Odisha,dynamic,solution">
+    <meta name="author" content="Goura Gopal Dalai">
+    <meta name="revised" content="DynamicSolutionOdisha, 27/12/2017" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Solution Odisha</title>
+    <link rel="icon" href="favicon.png" />
+    <link href="Content/font-awesome.css" rel="stylesheet" />
+    <script src="Scripts/angular.min.js"></script>
+    <link href="Content/angular-material.min.css" rel="stylesheet" />
+    <script src="Scripts/angular-animate.min.js"></script>
+    <script src="Scripts/angular-aria.min.js"></script>
+    <script src="Scripts/angular-material.min.js"></script>
+    <script src="Scripts/angular-messages.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+    <style>
+        html {
+            overflow: scroll;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent; /* make scrollbar transparent */
+        }
+
+        .hint {
+            position: absolute;
+            left: 2px;
+            right: auto;
+            bottom: 7px;
+            font-size: 12px;
+            line-height: 14px;
+            transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+            color: grey;
+        }
+
+        #myIframe.normal {
+            opacity: 1.0;
+        }
+
+        #myIframe.faded {
+            opacity: 0.0;
+        }
+
+        #myIframe {
+            /* Firefox */
+            -moz-transition-property: opacity;
+            -moz-transition-duration: 3s;
+            /* WebKit */
+            -webkit-transition-property: opacity;
+            -webkit-transition-duration: 3s;
+            /* Standard */
+            transition-property: opacity;
+            transition-duration: 3s;
+        }
+
+        #license-footer {
+            align-self: flex-end;
+            padding: 16px 32px;
+            width: 100%;
+            text-align: center;
+            font-size: small;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body ng-app="DynamicSolutionOdisha" ng-controller="WebApp" ng-cloak>
+    <div>
+        <md-content>
+            <md-tabs md-dynamic-height md-border-bottom style="height:100%" md-align-tabs="top">
+                <md-tab label="Home">
+                    <div style="height:100%;overflow-y:auto;" ng-include src="'Home.html'"></div>
+                </md-tab>
+                <md-tab label="Products">
+                    <div style="height:100%;overflow-y:auto;" ng-include src="'Products.html'"></div>
+                </md-tab>
+                <md-tab label="About us">
+                    <div style="height:100%;overflow-y:auto;" ng-include src="'About.html'"></div>
+                </md-tab>
+                <md-tab label="Contact">
+                    <div style="height:100%;overflow-y:auto;" ng-include src="'Contact.html'"></div>
+                </md-tab>
+            </md-tabs>
+        </md-content>
+    </div>
+
+    <script type="text/javascript">
+        angular.module('DynamicSolutionOdisha', ['ngMaterial', 'ngMessages']).controller('WebApp', function ($scope, $mdDialog, $http) {
+            function DialogController($scope, $mdDialog) {
+                $scope.hide = function () {
+                    $mdDialog.hide();
+                };
+
+                $scope.cancel = function () {
+                    $mdDialog.cancel();
+                };
+
+                $scope.answer = function (answer) {
+                    $mdDialog.hide(answer);
+                };
+            }
+            $scope.showTabDialog = function (ev) {
+                $mdDialog.show({
+                    controller: DialogController,
+                    templateUrl: 'tabDialog.tmpl.html',
+                    parent: angular.element(document.body),
+                    targetEvent: ev,
+                    clickOutsideToClose: true
+                })
+                    .then(function (answer) {
+                        $scope.status = 'You said the information was "' + answer + '".';
+                    }, function () {
+                        $scope.status = 'You cancelled the dialog.';
+                    });
+            };
+            $scope.Products = [
+                {
+                    image: 'img/gopu.png',
+                    desc: 'Billing Printer with Battery',
+                    name: 'WeP BP 25T',
+                    price: '13,090',
+                    notes: "2 inches, easy to understand, operate and generate report. Fast thermal printing with USB for back-up."
+                },
+                {
+                    image: 'img/subhi.png',
+                    desc: 'Billing Printer',
+                    name: 'WeP BP 85',
+                    price: '13,749',
+                    notes: "Small and Compact. Impact print technology with weighing scale"
+                },
+                {
+                    image: 'img/gopu.png',
+                    desc: 'For billing printer',
+                    name: 'Printer Catridge',
+                    price: null,
+                    notes: "Original ink"
+                },
+                {
+                    image: 'img/subhi.png',
+                    desc: 'For billing printer',
+                    name: 'Printer Paper Rolls',
+                    price: null,
+                    notes: "Super-fine paper"
+                },
+            ];
+            $scope.Contacts = [
+                {
+                    image: 'img/gopu.png',
+                    timing: '8:00AM to 8:00PM',
+                    name: 'Debasis Dalai',
+                    phone1: '+91-986-177-8374',
+                    phone2: '+91-977-844-3451',
+                    email: 'dynamic_solution123@rediffmail.com'
+                },
+            ];
+            $scope.CustomerFeeds = [
+                {
+                    image: 'img/gopu.png',
+                    rating: 5,
+                    name: 'Mr. RK Mishra',
+                    position: 'MD',
+                    company: 'Quest & Nexus Group',
+                    feed: 'We’ve looked for printer and billing solutions but these guys were always the clear favorite. They have the right solution and they’ve been awesome to work with.'
+                },
+                {
+                    image: 'img/gopu.png',
+                    rating: 5,
+                    name: 'Mr. PN Lodha',
+                    position: 'Owner',
+                    company: 'Infojen Softwares',
+                    feed: 'Dynamic solution made my day, as a they understood our requirment and gave us proper solution, I highly recommend.'
+                },
+                {
+                    image: 'img/gopu.png',
+                    rating: 4,
+                    name: 'Mr. Ratikanta Swain',
+                    position: 'AP',
+                    company: 'Infotech Solutions',
+                    feed: 'Atlast found the best and high quality product for my Hotel billing printer. Cheers to Dynamic Solution.'
+                },
+            ];
+        });
+    </script>
+    <script type="text/ng-template" id="Home.html">
+        <div>
+            <md-toolbar md-scroll-shrink>
+                <div style="background:#FBC02D" class="md-toolbar-tools"><i class="fa fa-home"></i>&nbsp;Home</div>
+            </md-toolbar>
+            <md-subheader class="md-no-sticky">#1 dealer and distributor of billing printers in Odisha</md-subheader>
+            <md-content class="md-padding" layout-xs="column" layout="row">
+                <div flex-xs flex-gt-xs="50" layout="column" ng-repeat="item in Products">
+                    <md-card>
+                        <md-card-header>
+                            <md-card-avatar>
+                                <img src="img/gopu.png" />
+                            </md-card-avatar>
+                            <md-card-header-text>
+                                <span class="md-title">{{item.name}}</span>
+                                <span class="md-subhead" ng-if="item.price !== null">&#8377;{{item.price}}</span>
+                            </md-card-header-text>
+                        </md-card-header>
+                        <img ng-src="{{item.image}}" class="md-card-image" alt="Washed Out">
+                        <md-card-title>
+                            <md-card-title-text>
+                                <span class="md-headline">{{item.desc}}</span>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-content>
+                            <p>
+                                {{item.notes}}
+                            </p>
+                        </md-card-content>
+                    </md-card>
+                </div>
+            </md-content>
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="Products.html">
+        <div>
+            <md-toolbar md-scroll-shrink class="md-warn">
+                <div style="background:#F9A825" class="md-toolbar-tools">Products</div>
+            </md-toolbar>
+            <md-content>
+                <md-list flex style="height:400px">
+                    <md-subheader class="md-no-sticky">Showing the list of trusted products</md-subheader>
+                    <md-list-item class="md-padding md-3-line" ng-repeat="item in Products" ng-click="null">
+                        <md-button>
+                            <img ng-src="{{item.image}}?{{$index}}" class="md-avatar" alt="{{item.name}}" />
+                            <md-tooltip>
+                                {{ item.name }}
+                            </md-tooltip>
+                        </md-button>
+                        <div class="md-list-item-text" layout="column">
+                            <div layout="row">
+                                <h3 flex="80">{{ item.name }}</h3>
+                                <code flex="20" style="height:10px;margin-top:-10px;color:slategrey" ng-if="item.price !== null">&#8377;{{ item.price }}</code>
+                            </div>
+                            <h4>{{ item.desc }}</h4>
+                            <p>{{ item.notes }}</p>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </md-content>
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="About.html">
+        <div>
+            <md-toolbar md-scroll-shrink class="md-accent">
+                <div style="background:#FBC02D" class="md-toolbar-tools">About Dynamic Solution Odisha</div>
+            </md-toolbar>
+            <md-content>
+                <md-list flex style="height:400px">
+                    <md-subheader class="md-no-sticky">Showing the feedback list of our loyal customers</md-subheader>
+                    <md-list-item ng-repeat="item in CustomerFeeds" ng-click="null">
+                        <md-button>
+                            <img ng-src="{{item.image}}?{{$index}}" class="md-avatar" alt="{{item.name}}" />
+                            <md-tooltip>
+                                {{ item.name }}
+                            </md-tooltip>
+                        </md-button>
+                        <div class="md-list-item-text" layout="column">
+                            <blockquote>
+                                <i>
+                                    {{ item.rating }} <i class="fa fa-star"></i>
+                                    <span class="md-display-6">&#10077;</span>
+                                    {{item.feed}}
+                                    <span class="md-display-6">&#10078; &nbsp;&nbsp; &#8212;&nbsp;&nbsp;{{item.name}} ({{item.position}} at {{item.company}})</span>
+                                </i>
+                            </blockquote>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </md-content>
+            
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="Contact.html">
+        <div>
+            <md-toolbar md-scroll-shrink class="md-accent">
+                <div style="background:#F9A825" class="md-toolbar-tools">Contact us</div>
+            </md-toolbar>
+            <md-content>
+                <md-list flex style="height:400px">
+                    <md-subheader class="md-no-sticky">Showing the list of people you can contact</md-subheader>
+                    <md-list-item class="md-padding md-3-line" ng-repeat="item in Contacts">
+                        <md-button>
+                            <img ng-src="{{item.image}}?{{$index}}" class="md-avatar" alt="{{item.name}}" />
+                            <md-tooltip>
+                                {{ item.name }}
+                            </md-tooltip>
+                        </md-button>
+                        <div class="md-list-item-text" layout="column">
+                            <div layout="row">
+                                <p style="color:black">{{ item.name }}</p>
+                            </div>
+                            <p> Timings: {{ item.timing }} <br /><a href="tel:{{item.phone1}}">{{ item.phone1 }}</a>&nbsp;/&nbsp;<a href="tel:{{item.phone2}}">{{ item.phone2 }}</a></p>
+                            <p><a href="mailto:{{ item.email }}?Subject=Regarding%20Billing%20printer" target="_top">{{ item.email }}</a></p>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </md-content>
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="tabDialog.tmpl.html">
+        <md-dialog aria-label="About Manisha">
+            <form>
+                <md-toolbar>
+                    <div class="md-toolbar-tools">
+                        <h2>Manisha</h2>
+                        <span flex></span>
+                        <md-button class="md-icon-button" ng-click="cancel()">
+                            <md-icon class="fa fa-birthday-cake" aria-label="Close dialog"></md-icon>
+                        </md-button>
+                    </div>
+                </md-toolbar>
+                <md-dialog-content style="max-width:800px;max-height:810px; ">
+                    <md-tabs md-dynamic-height md-stretch-tabs="always" md-border-bottom>
+                        <md-tab label="M">
+                            <md-content class="md-padding">
+                                <h1 class="md-display-2">M in Manisha</h1>
+                                <p>Methodical</p>
+                            </md-content>
+                        </md-tab>
+                        <md-tab label="A">
+                            <md-content class="md-padding">
+                                <h1 class="md-display-2">A in Manisha</h1>
+                                <p>Artististic</p>
+                            </md-content>
+                        </md-tab>
+                        <md-tab label="N">
+                            <md-content class="md-padding">
+                                <h1 class="md-display-2">N in Manisha</h1>
+                                <p>Naughty 👹</p>
+                            </md-content>
+                        </md-tab>
+                        <md-tab label="I">
+                            <md-content class="md-padding">
+                                <h1 class="md-display-2">I in Manisha</h1>
+                                <p>Inventive</p>
+                                <p>Intelligent</p>
+                                <p>Interesting</p>
+                                <p>Inspirational</p>
+                            </md-content>
+                        </md-tab>
+                        <md-tab label="S">
+                            <md-content class="md-padding">
+                                <h1 class="md-display-2">S in Manisha</h1>
+                                <p>Sympathetic</p>
+                            </md-content>
+                        </md-tab>
+                        <md-tab label="h">
+                            <md-content class="md-padding">
+                                <h1 class="md-display-2">H in Manisha</h1>
+                                <p>Humourous</p>
+                                <p>Home loving</p>
+                                <p>Humanitarian</p>
+                            </md-content>
+                        </md-tab>
+                        <md-tab label="a">
+                            <md-content class="md-padding">
+                                <h1 class="md-display-2">A in Manisha</h1>
+                                <p>Ambitious</p>
+                                <p>Angelic</p>
+                            </md-content>
+                        </md-tab>
+                        <md-tab label=".">
+                            <md-content class="md-padding">
+                                <h1 class="md-display-2">Secret place</h1>
+                                <p>You're Awesome</p>
+                            </md-content>
+                        </md-tab>
+                    </md-tabs>
+                </md-dialog-content>
+
+                <md-dialog-actions layout="row">
+                    <md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>
+                        More on Wikipedia
+                    </md-button>
+                    <span flex></span>
+                    <md-button ng-click="answer('not useful')">
+                        Not Useful
+                    </md-button>
+                    <md-button ng-click="answer('useful')" style="margin-right:20px;">
+                        Useful
+                    </md-button>
+                </md-dialog-actions>
+            </form>
+        </md-dialog>
+    </script>
+    <div id="license-footer" flex="" class="ng-binding flex">
+        <p class="md-headline">No. 1 Dealer &amp; Distributor of Billing Printers in Odisha.</p>
+        <p class="md-caption">We provide billing printers with related support &amp; services in all major cities of Odisha. We are the most trusted company in this field.</p>
+        <p class="md-subhead">
+            Powered by Dynamic Solution Odisha ©2014–2018.
+            All Rights Reserved.
+        </p>
+    </div>
+</body>
+</html>
